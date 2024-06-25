@@ -4,19 +4,19 @@ A responsive website that displays a single city's current 5-day weather forecas
 
 ### Date
 
-Monday June 24, 2024
+Tuesday June 25, 2024
 
 ### URL
 
--
+- https://yuria-n.github.io/weather-insight/
 
 ### Time spent
 
 Approximately 8 hours.
 
 - Brainstorming and planning: 1 hour
-- Repository setup: 2 hours
-- Development and testing (storybook): 4 hours
+- Repository setup: 1 hours
+- Development and testing (storybook): 5 hours
 - Documentation (README): 1 hour
 
 ### Assumptions
