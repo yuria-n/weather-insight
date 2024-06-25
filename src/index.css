@@ -1,0 +1,14 @@
+/* For normalizing CSS */
+@tailwind base;
+
+/* Global Variables */
+:root {
+  --color-brand-dark: rgb(30 27 75 / 100%);
+  --color-brand-light: rgb(255 255 255 / 100%);
+  --color-brand-shadow: rgb(30 27 75 / 20%);
+  --color-brand-bg: rgb(255 255 255 / 30%);
+}
+
+#root {
+  color: var(--color-brand-dark);
+}

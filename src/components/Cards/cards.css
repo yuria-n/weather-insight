@@ -1,0 +1,27 @@
+.cards-header {
+  margin: 2rem 0 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+}
+
+@container (width >= 600px) {
+  .cards-container {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@container (width >= 1200px) {
+  .cards-container {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
