@@ -44,9 +44,9 @@ Approximately 8 hours.
 
 Preparation
 
-1. Copy `.env.example`, rename it to `.env`, and add an Open WeatherMap API key
-2. Run `npm install` to install dependencies
-3. Run `npm run prepare` to set up the pre-commit hook (optional for view-only)
+1. Run `npm install` to install dependencies
+2. [Optional] copy `.env.example`, rename it to `.env`, and add an Open WeatherMap API key
+3. [Optional] run `npm run prepare` to set up the pre-commit hook
 
 Main application
 

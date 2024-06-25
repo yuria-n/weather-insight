@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import { apiKey, apiBaseUrl } from '../constants';
+import { apiKey, apiBaseUrl, apiAlternativeUrl } from '../constants';
 import * as entities from '../entities';
 
 interface WeatherData {
@@ -49,6 +49,22 @@ interface StoredData {
 const storageKey = 'weather';
 const delay = 1000 * 60 * 30; // 30 min
 
+async function fetchWeathers(): Promise<{ list: WeatherData[] }> {
+  if (!apiKey) {
+    const response = await axios.get(apiAlternativeUrl);
+    return JSON.parse(response.data);
+  }
+
+  const response = await axios.get(apiBaseUrl, {
+    params: {
+      q: 'Vancouver,ca',
+      units: 'metric',
+      appid: apiKey,
+    },
+  });
+  return response.data;
+}
+
 function formatWeathers(data: WeatherData[]): entities.Weather[] {
   return data.map((item: WeatherData) =>
     entities.Weather.instantiate(
@@ -76,16 +92,8 @@ export function useWeather() {
       return;
     }
 
-    axios
-      .get(apiBaseUrl, {
-        params: {
-          q: 'Vancouver,ca',
-          units: 'metric',
-          appid: apiKey,
-        },
-      })
-      .then((response) => {
-        const { list } = response.data;
+    fetchWeathers()
+      .then(({ list }) => {
         const now = Date.now();
 
         // Cache weatherData for the next 30 minutes
